@@ -1,0 +1,37 @@
+Try to solve on paper the following boolean algebra operations:
+
+    [A]: (55 != 55) && (false ^ true)
+    [B]: considering that a=true, b=false, int c=2 and char d='2': (!a || !b) || c == d )
+    [C]: false && true || false && !false
+    [D]: (false && true) || (false || true))
+
+Then compare your solutions with a Java program that tests the validity of your assumptions.
+
+Caso A:
+partiamo dalla prima parentesi:
+(55 è diverso da 55). questa affermazione risulta falsa
+l'operatore utilizzato per separare le due parentesi è il prodotto logico and (&&).
+    quindi avendo come primo parametro falso, si può dedurre da subito che il risultato finale sarà falso.
+(falso xor vero) equivale a (0 - 1) che da un risultato diverso da 0. quindi vera
+in conclusione: falso && vero = 0 * 1 = 0. quindi falso
+
+Caso B:
+traduco direttamente:
+Considerando a=vero b=falso intero di c=2 e carattere di d="2"
+    nota: l'operatore logico di comparazione == ha la precenza rispetto all'or.
+    ma per un organizzazione matematica, si rende necessaria la parentesi a titolo dimostrativo
+        (non vero + non falso) + (numero = testo)
+        (falso + vero) + falso
+        vero + falso darà vero
+
+Caso C:
+traduco in operazione numerica (0=falso, 1=vero, &&=moltiplicazione, ||=addizione, !=diverso)
+eseguo le operazioni rispettando la priorità delle operazioni (parentesi -> moltiplicazioni -> addizioni)
+0 * 1 + 0 * !(0)
+0 * 1 + 0 * 1
+0 + 0 = 0. falso
+
+Caso D:
+(falso && vero) || (falso || vero)
+(0 * 1) + (0 + 1)
+0 + 1 = 1 vero
